@@ -22,3 +22,20 @@ y_train = np.where(y_train == "yes", 1, 0)
 y_test = np.where(y_test == "yes", 1, 0)
 np.mean(y_train)
 np.mean(y_test)
+
+# create xgboost matrices
+Train = xgb.DMatrix(X_train, label = y_train)
+Test = xgb.DMatrix(X_test, label = y_test)
+
+# set the parameters
+parameters1 = {
+    'learning_rate': 0.3,
+    'max_depth': 2,
+    'colsample_bytree': 1,
+    'subsample': 1,
+    'min_child_weight': 1,
+    'gamma': 0,
+    'random_state': 1502,
+    'eval_matric': "auc",
+    'Objective': "binary:logistic"
+    }
