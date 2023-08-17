@@ -16,3 +16,9 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     test_size=0.2,
                                                     random_state=1502)
+
+# transform y factor variables
+y_train = np.where(y_train == "yes", 1, 0)
+y_test = np.where(y_test == "yes", 1, 0)
+np.mean(y_train)
+np.mean(y_test)
