@@ -39,3 +39,12 @@ parameters1 = {
     'eval_matric': "auc",
     'Objective': "binary:logistic"
     }
+
+# run XGBoost
+
+model1 = xgb.train(params=parameters1, 
+                   dtrain=Train,
+                   num_boost_round=200,
+                   evals=[(Test, "Yes")],
+                   verbose_eval=50
+                   )
