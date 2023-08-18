@@ -48,3 +48,7 @@ model1 = xgb.train(params=parameters1,
                    evals=[(Test, "Yes")],
                    verbose_eval=50
                    )
+
+# Predictions
+predictions1 = model1.predict(Test)
+predictions1 = np.where(predictions1 > 0.5, 1, 0)
